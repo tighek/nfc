@@ -32,6 +32,7 @@ def init_usb():
 
 try:
     print ("Starting Main")
+    print ("Seth is here")
     init_usb()
     print ("Write Red")
     dev.write(1,PAD1_RED)
