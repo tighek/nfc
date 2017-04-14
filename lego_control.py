@@ -30,7 +30,7 @@ def init_usb():
 
     return dev
 
-def main():
+try:
     print 'Starting Main'
     init_usb()
     print 'Write Red'
