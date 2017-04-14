@@ -30,7 +30,7 @@ TAG_REMOVED  = 1
 # Tag UIDs
 #
 uidDarthVader = (4, 161, 158, 210, 227, 64 , 128) # Disney Infinity
-uidSparks = (4, 108, 26, 34, 127, 73, 128) # Skylanders
+uidSparks = (130, 81, 177, 239, 0, 0, 0) # Skylanders
 
 def init_usb():
     global dev
@@ -118,11 +118,11 @@ def main():
                     action = bytelist[5]
                     if action == TAG_INSERTED :
                         if match:
-                            # Darth Vader
-                            switch_pad_color(pad_num, RED)
+                            # Matched tag
+                            switch_pad_color(pad_num, GREEN)
                         else:
                             # some other tag
-                            switch_pad_color(pad_num, GREEN)
+                            switch_pad_color(pad_num, RED)
                     else:
                         # some tag removed
                         switch_pad_color(pad_num, OFF)
