@@ -29,8 +29,8 @@ TAG_REMOVED  = 1
 
 # Tag UIDs
 #
-uidDarthVader = (4, 161, 158, 210, 227, 64 , 128) # Disney Infinity 3.0
-
+uidDarthVader = (4, 161, 158, 210, 227, 64 , 128) # Disney Infinity
+uidSparks = (4, 108, 26, 34, 127, 73, 128) # Skylanders
 
 def init_usb():
     global dev
@@ -82,6 +82,13 @@ def switch_pad_color(pad, color):
     send_command(dev,[0x55, 0x06, 0xc0, 0x02, pad, color[0], color[1], color[2],])
     return
 
+def uid_compare(uid1, uid2):
+    match = True
+    for i in range(0,7):
+        if (uid1[i] != uid2[i]) :
+            match = False
+    return match 
+
 
 def main():
 
@@ -107,7 +114,7 @@ def main():
                     print bytelist[6:13]
                     pad_num = bytelist[2]
                     uid_bytes = bytelist[6:13]
-                    match = uid_compare(uid_bytes, uidDarthVader)
+                    match = uid_compare(uid_bytes, uidSparks)
                     action = bytelist[5]
                     if action == TAG_INSERTED :
                         if match:
@@ -121,7 +128,6 @@ def main():
                         switch_pad(pad_num, OFF)
 
             except usb.USBError, err:
-                print ("Exception:", str(err))
                 pass
 
         switch_pad(ALL_PADS,OFF)
