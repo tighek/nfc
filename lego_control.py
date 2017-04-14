@@ -38,4 +38,3 @@ try:
     sleep(1)
     print 'Write Off'
     dev.write(1,PADS_OFF)
-    return
