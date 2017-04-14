@@ -75,6 +75,8 @@ try:
     switch_pad(CENTER_PAD,OFF)
     sleep(.5)
     switch_pad(CENTER_PAD,BLUE)
+    sleep(1)
+    switch_pad(ALL_PADS,OFF)
     print ("Done!")
 
 except Exception, err:
