@@ -125,7 +125,7 @@ def main():
                             switch_pad_color(pad_num, GREEN)
                     else:
                         # some tag removed
-                        switch_pad(pad_num, OFF)
+                        switch_pad_color(pad_num, OFF)
 
             except usb.USBError, err:
                 pass
