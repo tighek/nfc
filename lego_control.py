@@ -18,6 +18,8 @@ def init_usb():
     if dev is None:
         print 'Device not found'
     else:
+        print 'Found the device'
+        
         if dev.is_kernel_driver_active(0):
             dev.detach_kernel_driver(0)
 
