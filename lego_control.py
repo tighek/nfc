@@ -31,8 +31,11 @@ def init_usb():
     return dev
 
 def main():
+    print 'Starting Main'
     init_usb()
+    print 'Write Red'
     dev.write(1,PAD1_RED)
     sleep(1)
+    print 'Write Off'
     dev.write(1,PADS_OFF)
     return
