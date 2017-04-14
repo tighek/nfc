@@ -31,10 +31,19 @@ def init_usb():
     return dev
 
 try:
-    print 'Starting Main'
+    print ("Starting Main")
     init_usb()
-    print 'Write Red'
+    print ("Write Red")
     dev.write(1,PAD1_RED)
     sleep(1)
-    print 'Write Off'
+    print ("Write Off")
     dev.write(1,PADS_OFF)
+
+except Exception, err:
+    print ("Exception:", str(err))
+    import traceback, sys
+    print ('-'*60)
+    traceback.print_exc(file=sys.stdout)
+    print ('-'*60)
+    
+#End
