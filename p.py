@@ -5,22 +5,23 @@
 import pickle
 
 TEST_TAG = {"Mario":[130, 81, 177, 239, 0, 0, 0]}
+TAG_FILE = 'tag_archive.p'
 TAG_ARCHIVE = []
 
 def read_tag_file():
-    tag_file=open('tag_archive.p', 'rb')
+    tags=open(TAG_FILE, 'rb')
     while 1:
         try:
-            TAG_ARCHIVE.append(pickle.load(tag_file))
+            TAG_ARCHIVE.append(pickle.load(tags))
         except EOFError:
             break
-    tag_file.close()
+    tags.close()
     return
 
 def write_tag_file():
-    tag_file=open('tag_archive.p', 'wb')
-    pickle.dump(TEST_TAG, tag_file)
-    tag_file.close()
+    tags=open(TAG_FILE, 'wb')
+    pickle.dump(TEST_TAG, tags)
+    tags.close()
     return
 
 def main():
