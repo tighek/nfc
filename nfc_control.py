@@ -105,7 +105,7 @@ def read_tag_file():
     tags=open(TAG_FILE, 'rb')
     while 1:
         try:
-            TAG_ARCHIVE.append(pickle.load(tags))
+            TAG_ARCHIVE = pickle.load(tags)
         except EOFError:
             break
     tags.close()
