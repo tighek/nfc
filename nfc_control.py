@@ -100,7 +100,7 @@ def uid_compare(uid1):
     for character, tag_id in TAG_ARCHIVE.iteritems():
         if (uid1==tag_id):
             match = True
-        else
+        else:
             TAG_ARCHIVE['Next'] = uid1
             write_tag_file()     
     return match 
