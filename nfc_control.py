@@ -120,9 +120,9 @@ def main():
                     pass
                 else:
                     pad_num = bytelist[2]
-                    print ('Pad number: ' + pad_num)
+                    print ("Pad number: " + pad_num)
                     uid_bytes = bytelist[6:13]
-                    print ('Character data: ' + bytelist[6:13])
+                    print ("Character data: " + bytelist[6:13])
                     match = uid_compare(uid_bytes, uidSparks)
                     action = bytelist[5]
                     if action == TAG_INSERTED :
