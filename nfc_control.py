@@ -119,7 +119,7 @@ def read_tag_file():
         except EOFError:
             break
     tags.close()
-    if notTAG_ARCHIVE:
+    if not TAG_ARCHIVE:
         prime_tag_archive()
     return
 
@@ -145,7 +145,9 @@ def main():
     # Load Tag Archive
     #
     # read_tag_file()
-    
+    if not TAG_ARCHIVE:
+        prime_tag_archive()
+
     # Start a loop looking for tags
     #
     if dev != None :
