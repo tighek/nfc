@@ -96,7 +96,7 @@ def switch_pad_color(pad, color):
 
 def uid_compare(uid1):
     match = False
-    if uid1 in TAG_ARCHIVE.values()
+    if uid1 in TAG_ARCHIVE.iteervalues()
         match = True            
     return match 
 
