@@ -1,5 +1,13 @@
 #!/usr/bin/python
 
+# Toy pad control script
+#
+# This is based upon the work by Jorge Pereira on ev3dev.org and @woodenphone on GitHub
+#
+# Read NFC tags from characters using a Lego Dimensions portal.
+#
+
+
 import usb.core
 import usb.util
 from time import sleep
