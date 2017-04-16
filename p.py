@@ -20,6 +20,7 @@ def read_tag_file():
 
 def write_tag_file():
     tags=open(TAG_FILE, 'wb')
+    TEST_TAG.update({"DarthVader":[4, 161, 158, 210, 227, 64 , 128]})
     pickle.dump(TEST_TAG, tags)
     tags.close()
     return
