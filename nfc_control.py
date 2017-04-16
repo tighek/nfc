@@ -96,9 +96,9 @@ def switch_pad_color(pad, color):
 
 def uid_compare(uid1):
     match = False
-    TAG_VALUES = TAG_ARCHIVE.values()
-    if uid1 in TAG_VALUES
-        match = True            
+    for character, tag_id in TAG_ARCHIVE.iteritems():
+        if (uid1==tag_id):
+            match = True            
     return match 
 
 def read_tag_file():
