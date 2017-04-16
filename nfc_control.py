@@ -119,6 +119,7 @@ def main():
                 elif bytelist[0] != 0x56: # NFC packets start with 0x56
                     pass
                 else:
+                    print bytelist
                     print bytelist[6:13]
                     pad_num = bytelist[2]
                     uid_bytes = bytelist[6:13]
