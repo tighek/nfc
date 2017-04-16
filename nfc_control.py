@@ -132,6 +132,7 @@ def main():
                             switch_pad_color(pad_num, GREEN)
                         else:
                             # some other tag
+                            print 'Tag Inserted'
                             switch_pad_color(pad_num, RED)
                     else:
                         # some tag removed
