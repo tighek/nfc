@@ -11,6 +11,7 @@
 import usb.core
 import usb.util
 from time import sleep
+import pickle
 
 # Toypad initiliztion string
 #
@@ -40,6 +41,12 @@ TAG_REMOVED  = 1
 uidDarthVader = (4, 161, 158, 210, 227, 64 , 128) # Disney Infinity
 uidSparks = (130, 81, 177, 239, 0, 0, 0) # Skylanders
 
+# Tag data structure
+#
+TEST_TAG = {"Mario":[130, 81, 177, 239, 0, 0, 0]}
+TAG_FILE = 'tag_archive.p'
+TAG_ARCHIVE = []
+
 def init_usb():
     global dev
 
@@ -53,10 +60,8 @@ def init_usb():
         print 'Device not found'
     else:
         print 'Found the device:  ' + usb.util.get_string(dev, dev.iProduct)
-        
         if dev.is_kernel_driver_active(0):
             dev.detach_kernel_driver(0)
-
         dev.set_configuration()
         dev.write(1,TOYPAD_INIT)
     return dev
@@ -80,7 +85,6 @@ def send_command(dev,command):
     # Send message to Toypad
     #
     dev.write(1, message)
-
     return
 
 def switch_pad_color(pad, color):
@@ -90,12 +94,29 @@ def switch_pad_color(pad, color):
     send_command(dev,[0x55, 0x06, 0xc0, 0x02, pad, color[0], color[1], color[2],])
     return
 
-def uid_compare(uid1, uid2):
-    match = True
-    for i in range(0,7):
-        if (uid1[i] != uid2[i]) :
-            match = False
+def uid_compare(uid1):
+    match = False
+    for key, value in TAG_ARCHIVE.items():
+        if uid1 = value
+            match = True
+		else            
     return match 
+
+def read_tag_file():
+    tags=open(TAG_FILE, 'rb')
+    while 1:
+        try:
+            TAG_ARCHIVE.append(pickle.load(tags))
+        except EOFError:
+            break
+    tags.close()
+    return
+
+def write_tag_file():
+    tags=open(TAG_FILE, 'wb')
+    pickle.dump(TAG_ARCHIVE, tags)
+    tags.close()
+    return
 
 
 def main():
@@ -105,6 +126,10 @@ def main():
     # Initialize the Toypad
     #
     init_usb()
+    
+    # Load Tag Archive
+    #
+    read_tag_file()
     
     # Start a loop looking for tags
     #
@@ -123,17 +148,19 @@ def main():
                     print 'Pad number: ', pad_num
                     uid_bytes = bytelist[6:13]
                     print 'Character data: ', bytelist[6:13]
-                    match = uid_compare(uid_bytes, uidSparks)
+                    match = uid_compare(uid_bytes)
                     action = bytelist[5]
                     if action == TAG_INSERTED :
                         if match:
                             # Matched tag
-                            print 'Tag Inserted'
+                            print 'Tag Inserted and present in the list'
                             switch_pad_color(pad_num, GREEN)
                         else:
                             # some other tag
-                            print 'Tag Inserted'
+                            print 'Tag Inserted and written to the list'
                             switch_pad_color(pad_num, RED)
+                            TAG_ARCHIVE.update({"Next":uid_bytes})
+                            write_tag_file()
                     else:
                         # some tag removed
                         print 'Tag Removed'
