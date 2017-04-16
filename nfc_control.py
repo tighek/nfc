@@ -119,21 +119,23 @@ def main():
                 elif bytelist[0] != 0x56: # NFC packets start with 0x56
                     pass
                 else:
-                    print bytelist
-                    print bytelist[6:13]
                     pad_num = bytelist[2]
+                    print ('Pad number: ' + pad_num)
                     uid_bytes = bytelist[6:13]
+                    print ('Character data: ' + bytelist[6:13])
                     match = uid_compare(uid_bytes, uidSparks)
                     action = bytelist[5]
                     if action == TAG_INSERTED :
                         if match:
                             # Matched tag
+                            print 'Tag Inserted'
                             switch_pad_color(pad_num, GREEN)
                         else:
                             # some other tag
                             switch_pad_color(pad_num, RED)
                     else:
                         # some tag removed
+                        print 'Tag Removed'
                         switch_pad_color(pad_num, OFF)
 
             except usb.USBError, err:
