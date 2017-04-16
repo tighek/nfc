@@ -101,14 +101,18 @@ def uid_compare(uid1):
     for character, tag_id in TAG_ARCHIVE.iteritems():
         if (uid1==tag_id):
             match = True
+            print ("uid_compare match")
         else:
+            match = False
             TAG_ARCHIVE['Next'] = uid1
             write_tag_file()     
+            print ("uid_compare miss")
             print TAG_ARCHIVE
     return match 
 
 def read_tag_file():
     tags=open(TAG_FILE, 'rb')
+    TAG_ARCHIVE = {}
     while 1:
         try:
             TAG_ARCHIVE = pickle.load(tags)
@@ -161,11 +165,10 @@ def main():
                             print 'Tag Inserted and present in the list'
                             switch_pad_color(pad_num, GREEN)
                         else:
-                            # some other tag
+                            # Missed tag
                             print 'Tag Inserted and written to the list'
                             switch_pad_color(pad_num, RED)
-                            
-                            write_tag_file()
+
                     else:
                         # some tag removed
                         print 'Tag Removed'
