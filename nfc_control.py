@@ -101,8 +101,8 @@ def uid_compare(uid1):
         if (uid1==tag_id):
             match = True
         else
-        TAG_ARCHIVE['Next'] = uid1
-        write_tag_file()     
+            TAG_ARCHIVE['Next'] = uid1
+            write_tag_file()     
     return match 
 
 def read_tag_file():
