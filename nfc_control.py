@@ -119,6 +119,8 @@ def read_tag_file():
         except EOFError:
             break
     tags.close()
+    if notTAG_ARCHIVE:
+        prime_tag_archive()
     return
 
 def write_tag_file():
@@ -127,6 +129,10 @@ def write_tag_file():
     tags.close()
     return
 
+def prime_tag_archive():
+    TAG_ARCHIVE['Sparks'] = '[130, 81, 177, 239, 0, 0, 0]'
+    write_tag_archive()
+    return
 
 def main():
 
