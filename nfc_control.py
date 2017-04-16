@@ -96,9 +96,13 @@ def switch_pad_color(pad, color):
 
 def uid_compare(uid1):
     match = False
+    read_tag_file()
     for character, tag_id in TAG_ARCHIVE.iteritems():
         if (uid1==tag_id):
-            match = True            
+            match = True
+        else
+        TAG_ARCHIVE['Next'] = uid1
+        write_tag_file()     
     return match 
 
 def read_tag_file():
@@ -128,7 +132,7 @@ def main():
     
     # Load Tag Archive
     #
-    read_tag_file()
+    # read_tag_file()
     
     # Start a loop looking for tags
     #
@@ -158,7 +162,7 @@ def main():
                             # some other tag
                             print 'Tag Inserted and written to the list'
                             switch_pad_color(pad_num, RED)
-                            TAG_ARCHIVE.update({"Next":uid_bytes})
+                            
                             write_tag_file()
                     else:
                         # some tag removed
