@@ -4,7 +4,7 @@
 
 import pickle
 
-TEST_TAG = {[130, 81, 177, 239, 0, 0, 0]}
+TEST_TAG = {"Mario":[130, 81, 177, 239, 0, 0, 0]}
 TAG_ARCHIVE = []
 
 def read_tag_file():
