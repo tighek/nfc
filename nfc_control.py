@@ -131,7 +131,7 @@ def write_tag_file():
 
 def prime_tag_archive():
     TAG_ARCHIVE['Sparks'] = '[130, 81, 177, 239, 0, 0, 0]'
-    write_tag_archive()
+    write_tag_file()
     return
 
 def main():
