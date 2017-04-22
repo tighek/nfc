@@ -40,12 +40,13 @@ TAG_REMOVED  = 1
 #
 uidDarthVader = (4, 161, 158, 210, 227, 64 , 128) # Disney Infinity
 uidSparks = (130, 81, 177, 239, 0, 0, 0) # Skylanders
+tag_primer = {"PrimerTag": [01,01,01,01,01,01,01]}
 
 # Tag data structure
 #
 TEST_TAG = {"Mario":[130, 81, 177, 239, 0, 0, 0]}
 TAG_FILE = 'tag_archive.p'
-TAG_ARCHIVE = {}
+TAG_ARCHIVE = tag_primer
 
 def init_usb():
     global dev
