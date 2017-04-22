@@ -98,7 +98,8 @@ def uid_compare(uid1):
     print ("uid compare")
     match = None
     read_tag_file()
-    print ("Comparing to this list: "+TAG_ARCHIVE)
+    print ("Comparing to this list: ")
+    print TAG_ARCHIVE
     for character, tag_id in TAG_ARCHIVE.iteritems():
         if (uid1==tag_id):
             match = True
