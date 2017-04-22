@@ -150,9 +150,8 @@ def main():
     # Load Tag Archive
     #
     # read_tag_file()
-    if not TAG_ARCHIVE:
-        prime_tag_archive()
-
+    read_tag_file()
+    
     # Start a loop looking for tags
     #
     if dev != None :
