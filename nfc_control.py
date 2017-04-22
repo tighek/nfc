@@ -115,7 +115,6 @@ def uid_compare(uid1):
 def read_tag_file():
     print ("read tag file")
     tags=open(TAG_FILE, 'rb')
-    TAG_ARCHIVE = {}
     while 1:
         try:
             TAG_ARCHIVE = pickle.load(tags)
@@ -152,6 +151,7 @@ def main():
     # Load Tag Archive
     #
     # read_tag_file()
+    TAG_ARCHIVE = {}
     read_tag_file()
     
     # Start a loop looking for tags
