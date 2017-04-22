@@ -123,9 +123,9 @@ def read_tag_file():
             break
     tags.close()
     print ("Tags read: ")
-    print TAG_ARCHIVE
     if not TAG_ARCHIVE:
         prime_tag_archive()
+    print TAG_ARCHIVE
     return
 
 def write_tag_file():
