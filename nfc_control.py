@@ -124,9 +124,9 @@ def read_tag_file():
     tags.close()
     print ("Tags read: ")
     print TAG_ARCHIVE
-#    if not TAG_ARCHIVE:
-#        prime_tag_archive()
-    return TAG_ARCHIVE
+    if not TAG_ARCHIVE:
+        prime_tag_archive()
+    return
 
 def write_tag_file():
     print ("write tag file")
@@ -135,11 +135,11 @@ def write_tag_file():
     tags.close()
     return
 
-#def prime_tag_archive():
-#    print ("prime tag file")
-#    TAG_ARCHIVE['PrimerTag'] = '[01, 01, 01, 01, 01, 01, 01]'
-#    write_tag_file()
-#    return
+def prime_tag_archive():
+    print ("prime tag file")
+    TAG_ARCHIVE.update['PrimingTag'] = [01, 01, 01, 01, 01, 01, 01]
+    write_tag_file()
+    return
 
 def main():
 
