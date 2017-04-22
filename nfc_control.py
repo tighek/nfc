@@ -46,7 +46,7 @@ tag_primer = {"PrimerTag": [01,01,01,01,01,01,01]}
 #
 TEST_TAG = {"Mario":[130, 81, 177, 239, 0, 0, 0]}
 TAG_FILE = 'tag_archive.p'
-TAG_ARCHIVE = tag_primer
+TAG_ARCHIVE = {}
 
 def init_usb():
     global dev
@@ -104,7 +104,7 @@ def uid_compare(uid1,pad_num):
     for character, tag_id in TAG_ARCHIVE.iteritems():
         if (uid1==tag_id):
             match = True
-            print ("uid_compare match"+character)
+            print ("uid_compare match "+character)
             switch_pad_color(pad_num, GREEN)
             return
     print ("uid_compare miss")
