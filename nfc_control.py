@@ -109,7 +109,7 @@ def uid_compare(uid1):
             match = False
             print ("uid_compare miss")
             new_tag_name = raw_input("Character Name: ")
-            TAG_ARCHIVE.update[new_tag_name] = uid1
+            TAG_ARCHIVE[new_tag_name] = uid1
             write_tag_file() 
     return match 
 
@@ -137,7 +137,7 @@ def write_tag_file():
 
 def prime_tag_archive():
     print ("prime tag file")
-    TAG_ARCHIVE.update['PrimingTag'] = [01, 01, 01, 01, 01, 01, 01]
+    TAG_ARCHIVE["PrimingTag"] = [01, 01, 01, 01, 01, 01, 01]
     write_tag_file()
     return
 
