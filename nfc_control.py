@@ -163,7 +163,6 @@ def main():
     print "Starting device test for not null"
     if dev != None :
         while True:
-            print "We are true"
             try:
                 in_packet = dev.read(0x81, 32, timeout = 10)
                 bytelist = list(in_packet)
