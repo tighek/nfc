@@ -106,7 +106,7 @@ def uid_compare(uid1,pad_num):
             match = True
             print ("uid_compare match "+character)
             switch_pad_color(pad_num, GREEN)
-            return
+            return match
     print ("uid_compare miss")
     switch_pad_color(pad_num, RED)
     new_tag_name = raw_input("Character Name: ")
@@ -180,7 +180,7 @@ def main():
                     print 'Pad number: ', pad_num
                     uid_bytes = bytelist[6:13]
                     print 'Character data: ', bytelist[6:13]
-                    uid_match = uid_compare(uid_bytes,pad_num)
+                    uid_match = uid_compare(uid_bytes, pad_num)
                     action = bytelist[5]
                     if action == TAG_INSERTED:
                         if uid_match:
