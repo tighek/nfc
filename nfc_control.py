@@ -122,8 +122,8 @@ def read_tag_file():
         except EOFError:
             break
     tags.close()
-    if not TAG_ARCHIVE:
-        prime_tag_archive()
+#    if not TAG_ARCHIVE:
+#        prime_tag_archive()
     return
 
 def write_tag_file():
@@ -135,7 +135,7 @@ def write_tag_file():
 
 def prime_tag_archive():
     print ("prime tag file")
-    TAG_ARCHIVE['Primer_Tag'] = '[0, 0, 0, 0, 0, 0, 0]'
+    TAG_ARCHIVE['PrimerTag'] = '[01, 01, 01, 01, 01, 01, 01]'
     write_tag_file()
     return
 
