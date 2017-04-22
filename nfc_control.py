@@ -109,8 +109,9 @@ def uid_compare(uid1):
             match = False
             print ("uid_compare miss")
             new_tag_name = raw_input("Character Name: ")
-            TAG_ARCHIVE[new_tag_name] = uid1
-            write_tag_file() 
+    if new_tag_name:
+        TAG_ARCHIVE[new_tag_name] = uid1
+        write_tag_file() 
     return match 
 
 def read_tag_file():
