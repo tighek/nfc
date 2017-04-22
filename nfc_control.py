@@ -124,9 +124,9 @@ def read_tag_file():
             break
     tags.close()
     print ("Tags read: ")
-    if not TAG_ARCHIVE:
-        prime_tag_archive()
-    print TAG_ARCHIVE
+#    if not TAG_ARCHIVE:
+#        prime_tag_archive()
+#    print TAG_ARCHIVE
     return
 
 def write_tag_file():
@@ -160,16 +160,20 @@ def main():
     print TAG_ARCHIVE
     # Start a loop looking for tags
     #
+    print "Starting device test for not null"
     if dev != None :
         while True:
+            print "We are true"
             try:
                 in_packet = dev.read(0x81, 32, timeout = 10)
                 bytelist = list(in_packet)
 
                 if not bytelist:
+                    print "no byte list"
                     pass
                 elif bytelist[0] != 0x56: # NFC packets start with 0x56
-                    pass
+                    print "not nfc"
+                    pass                    
                 else:
                     pad_num = bytelist[2]
                     print 'Pad number: ', pad_num
@@ -182,13 +186,14 @@ def main():
                             # Matched tag
                             print 'Tag Inserted and present in the list'
                             switch_pad_color(pad_num, GREEN)
+                            return
                         else:
                             # Missed tag
                             print 'Tag Inserted and written to the list'
                             switch_pad_color(pad_num, RED)
                             print "sleep"
                             sleep (1)
-
+                            return
                     else:
                         # some tag removed
                         print 'Tag Removed'
