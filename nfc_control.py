@@ -108,7 +108,7 @@ def uid_compare(uid1):
             print ("uid_compare miss")
             new_tag_name = raw_input("Character Name: ")
     if match is False:
-        TAG_ARCHIVE[new_tag_name] = uid1
+        TAG_ARCHIVE.update[new_tag_name] = uid1
         write_tag_file() 
     return match 
 
@@ -169,10 +169,10 @@ def main():
                     print 'Pad number: ', pad_num
                     uid_bytes = bytelist[6:13]
                     print 'Character data: ', bytelist[6:13]
-                    match = uid_compare(uid_bytes)
+                    uid_match = uid_compare(uid_bytes)
                     action = bytelist[5]
-                    if action == TAG_INSERTED :
-                        if match:
+                    if action == TAG_INSERTED:
+                        if uid_match:
                             # Matched tag
                             print 'Tag Inserted and present in the list'
                             switch_pad_color(pad_num, GREEN)
