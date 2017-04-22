@@ -98,7 +98,7 @@ def switch_pad_color(pad, color):
 def uid_compare(uid1,pad_num):
     print ("uid compare")
     match = False
-    read_tag_file()
+#    read_tag_file()
     print ("Comparing to this list: ")
     print TAG_ARCHIVE
     for character, tag_id in TAG_ARCHIVE.iteritems():
