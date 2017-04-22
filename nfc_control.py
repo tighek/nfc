@@ -151,7 +151,7 @@ def main():
     # Load Tag Archive
     #
     # read_tag_file()
-    TAG_ARCHIVE = {}
+
     read_tag_file()
     
     # Start a loop looking for tags
