@@ -144,7 +144,9 @@ def prime_tag_archive():
 def main():
 
     print ("Starting up...")
-    
+ 
+    prime_tag_archive()
+       
     # Initialize the Toypad
     #
     init_usb()
