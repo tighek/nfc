@@ -121,7 +121,8 @@ def read_tag_file():
         except EOFError:
             break
     tags.close()
-    print ("Tags read: "+TAG_ARCHIVE)
+    print ("Tags read: ")
+    print TAG_ARCHIVE)
 #    if not TAG_ARCHIVE:
 #        prime_tag_archive()
     return
