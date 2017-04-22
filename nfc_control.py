@@ -95,7 +95,7 @@ def switch_pad_color(pad, color):
     send_command(dev,[0x55, 0x06, 0xc0, 0x02, pad, color[0], color[1], color[2],])
     return
 
-def uid_compare(uid1,pad_num):
+def uid_compare(TAG_ARCHIVE, uid1, pad_num):
     print ("uid compare")
     match = False
 #    read_tag_file()
@@ -180,7 +180,7 @@ def main():
                     print 'Pad number: ', pad_num
                     uid_bytes = bytelist[6:13]
                     print 'Character data: ', bytelist[6:13]
-                    uid_match = uid_compare(uid_bytes, pad_num)
+                    uid_match = uid_compare(TAG_ARCHIVE, uid_bytes, pad_num)
                     action = bytelist[5]
                     if action == TAG_INSERTED:
                         if uid_match:
