@@ -98,7 +98,7 @@ def uid_compare(uid1):
     print ("uid compare")
     match = None
     read_tag_file()
-    print TAG_ARCHIVE
+    print ("Comparing to this list: "+TAG_ARCHIVE)
     for character, tag_id in TAG_ARCHIVE.iteritems():
         if (uid1==tag_id):
             match = True
@@ -107,9 +107,8 @@ def uid_compare(uid1):
             match = False
             print ("uid_compare miss")
             new_tag_name = raw_input("Character Name: ")
-    if match is False:
-        TAG_ARCHIVE.update[new_tag_name] = uid1
-        write_tag_file() 
+            TAG_ARCHIVE.update[new_tag_name] = uid1
+            write_tag_file() 
     return match 
 
 def read_tag_file():
@@ -122,6 +121,7 @@ def read_tag_file():
         except EOFError:
             break
     tags.close()
+    print ("Tags read: "+TAG_ARCHIVE)
 #    if not TAG_ARCHIVE:
 #        prime_tag_archive()
     return
