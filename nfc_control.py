@@ -134,11 +134,11 @@ def write_tag_file():
     tags.close()
     return
 
-def prime_tag_archive():
-    print ("prime tag file")
-    TAG_ARCHIVE['PrimerTag'] = '[01, 01, 01, 01, 01, 01, 01]'
-    write_tag_file()
-    return
+#def prime_tag_archive():
+#    print ("prime tag file")
+#    TAG_ARCHIVE['PrimerTag'] = '[01, 01, 01, 01, 01, 01, 01]'
+#    write_tag_file()
+#    return
 
 def main():
 
@@ -153,7 +153,7 @@ def main():
     # read_tag_file()
 
     read_tag_file()
-    
+    print TAG_ARCHIVE
     # Start a loop looking for tags
     #
     if dev != None :
