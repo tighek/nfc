@@ -125,7 +125,7 @@ def read_tag_file():
     print TAG_ARCHIVE
 #    if not TAG_ARCHIVE:
 #        prime_tag_archive()
-    return
+    return TAG_ARCHIVE
 
 def write_tag_file():
     print ("write tag file")
@@ -182,6 +182,7 @@ def main():
                             # Missed tag
                             print 'Tag Inserted and written to the list'
                             switch_pad_color(pad_num, RED)
+                            sleep (1)
 
                     else:
                         # some tag removed
