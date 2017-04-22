@@ -105,8 +105,10 @@ def uid_compare(uid1):
         if (uid1==tag_id):
             match = True
             print ("uid_compare match"+character)
+            switch_pad_color(pad_num, GREEN)
             return
     print ("uid_compare miss")
+    switch_pad_color(pad_num, RED)
     new_tag_name = raw_input("Character Name: ")
     if new_tag_name:
         TAG_ARCHIVE[new_tag_name] = uid1
@@ -147,7 +149,7 @@ def main():
 
     print ("Starting up...")
  
-    prime_tag_archive()
+#    prime_tag_archive()
        
     # Initialize the Toypad
     #
@@ -190,8 +192,6 @@ def main():
                             # Missed tag
                             print 'Tag Inserted and written to the list'
                             switch_pad_color(pad_num, RED)
-                            print "sleep"
-                            sleep (1)
                     else:
                         # some tag removed
                         print 'Tag Removed'
