@@ -97,7 +97,7 @@ def switch_pad_color(pad, color):
 
 def uid_compare(uid1):
     print ("uid compare")
-    match = None
+    match = False
     read_tag_file()
     print ("Comparing to this list: ")
     print TAG_ARCHIVE
@@ -105,13 +105,13 @@ def uid_compare(uid1):
         if (uid1==tag_id):
             match = True
             print ("uid_compare match"+character)
-        else:
-            match = False
-            print ("uid_compare miss")
-            new_tag_name = raw_input("Character Name: ")
+            return
+    print ("uid_compare miss")
+    new_tag_name = raw_input("Character Name: ")
     if new_tag_name:
         TAG_ARCHIVE[new_tag_name] = uid1
         write_tag_file() 
+    print "end of uid compare"
     return match 
 
 def read_tag_file():
@@ -124,6 +124,7 @@ def read_tag_file():
             break
     tags.close()
     print ("Tags read: ")
+    print TAG_ARCHIVE
 #    if not TAG_ARCHIVE:
 #        prime_tag_archive()
 #    print TAG_ARCHIVE
