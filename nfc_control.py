@@ -95,25 +95,25 @@ def switch_pad_color(pad, color):
     return
 
 def uid_compare(uid1):
-    match = False
+    print ("uid compare")
+    match = Untested
     read_tag_file()
     print TAG_ARCHIVE
     for character, tag_id in TAG_ARCHIVE.iteritems():
         if (uid1==tag_id):
             match = True
-            print ("uid_compare match")
-            print TAG_ARCHIVE
+            print ("uid_compare match"+character)
         else:
             match = False
             print ("uid_compare miss")
             new_tag_name = raw_input("Character Name: ")
-            print TAG_ARCHIVE
     if match is False:
         TAG_ARCHIVE[new_tag_name] = uid1
         write_tag_file() 
     return match 
 
 def read_tag_file():
+    print ("read tag file")
     tags=open(TAG_FILE, 'rb')
     TAG_ARCHIVE = {}
     while 1:
@@ -127,13 +127,15 @@ def read_tag_file():
     return
 
 def write_tag_file():
+    print ("write tag file")
     tags=open(TAG_FILE, 'wb')
     pickle.dump(TAG_ARCHIVE, tags)
     tags.close()
     return
 
 def prime_tag_archive():
-    TAG_ARCHIVE['Sparks'] = '[130, 81, 177, 239, 0, 0, 0]'
+    print ("prime tag file")
+    TAG_ARCHIVE['Primer_Tag'] = '[0, 0, 0, 0, 0, 0, 0]'
     write_tag_file()
     return
 
