@@ -155,11 +155,15 @@ def main():
     #
     init_usb()
     
+    # Switch all pads off
+    #
+    switch_pad(ALL_PADS,OFF)
+
     # Load Tag Archive
     #
-    # read_tag_file()
 
     read_tag_file()
+    print "Back in the main"
     print TAG_ARCHIVE
     # Start a loop looking for tags
     #
