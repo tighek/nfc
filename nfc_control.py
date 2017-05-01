@@ -161,10 +161,8 @@ def main():
                 bytelist = list(in_packet)
 
                 if not bytelist:
-                    print "no byte list"
                     pass
                 elif bytelist[0] != 0x56: # NFC packets start with 0x56
-                    print "not nfc"
                     pass                    
                 else:
                     pad_num = bytelist[2]
