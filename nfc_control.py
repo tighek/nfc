@@ -130,7 +130,7 @@ def read_tag_file():
 #    if not TAG_ARCHIVE:
 #        prime_tag_archive()
 #    print TAG_ARCHIVE
-    return
+    return TAG_ARCHIVE
 
 def write_tag_file():
     print ("write tag file")
