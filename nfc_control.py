@@ -157,7 +157,7 @@ def main():
     
     # Switch all pads off
     #
-    switch_pad(ALL_PADS,OFF)
+    switch_pad_color(ALL_PADS,OFF)
 
     # Load Tag Archive
     #
@@ -203,7 +203,7 @@ def main():
             except usb.USBError, err:
                 pass
 
-        switch_pad(ALL_PADS,OFF)
+        switch_pad_color(ALL_PADS,OFF)
 
     return
 
