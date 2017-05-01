@@ -111,7 +111,6 @@ def uid_compare(TAG_ARCHIVE, uid1, pad_num):
     return match 
 
 def read_tag_file():
-    global TAG_ARCHIVE
     tags=open(TAG_FILE, 'rb')
     while 1:
         try:
@@ -148,7 +147,8 @@ def main():
     switch_pad_color(ALL_PADS,OFF)
 
     # Check if the tag archive exists, if not prime it.
-    #    
+    # 
+    global TAG_ARCHIVE  
     if not os.path.isfile(TAG_FILE):
         prime_tag_archive()
 
