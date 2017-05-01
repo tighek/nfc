@@ -46,7 +46,7 @@ tag_primer = {"PrimerTag": [01,01,01,01,01,01,01]}
 #
 TEST_TAG = {"Mario":[130, 81, 177, 239, 0, 0, 0]}
 TAG_FILE = 'tag_archive.p'
-TAG_ARCHIVE = {}
+# TAG_ARCHIVE = {}
 
 def init_usb():
     global dev
@@ -117,6 +117,7 @@ def uid_compare(TAG_ARCHIVE, uid1, pad_num):
     return match 
 
 def read_tag_file():
+    global TAG_ARCHIVE
     print ("read tag file")
     tags=open(TAG_FILE, 'rb')
     while 1:
@@ -130,7 +131,7 @@ def read_tag_file():
 #    if not TAG_ARCHIVE:
 #        prime_tag_archive()
 #    print TAG_ARCHIVE
-    return TAG_ARCHIVE
+    return
 
 def write_tag_file():
     print ("write tag file")
