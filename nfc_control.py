@@ -44,6 +44,7 @@ TAG_REMOVED  = 1
 tag_primer = {"PrimerTag": [01,01,01,01,01,01,01]}
 # TEST_TAG = {"Mario":[130, 81, 177, 239, 0, 0, 0]}
 TAG_FILE = 'tag_archive.p'
+TAG_ARCHIVE = {}
 
 def init_usb():
     global dev
