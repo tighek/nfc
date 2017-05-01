@@ -2,11 +2,13 @@
 
 # Toy pad control script
 #
+# By Tighe Kuykendall and Seth Kuykendall
+#
 # This is based upon the work by Jorge Pereira on ev3dev.org and @woodenphone on GitHub
 #
-# Read NFC tags from characters using a Lego Dimensions portal.
+# Read NFC tags from characters using a Lego Dimensions portal and write the character
+# data out to a file for backup purposes.
 #
-
 
 import usb.core
 import usb.util
@@ -36,17 +38,11 @@ RIGHT_PAD  = 3
 TAG_INSERTED = 0
 TAG_REMOVED  = 1
 
-# Tag UIDs
-#
-uidDarthVader = (4, 161, 158, 210, 227, 64 , 128) # Disney Infinity
-uidSparks = (130, 81, 177, 239, 0, 0, 0) # Skylanders
-tag_primer = {"PrimerTag": [01,01,01,01,01,01,01]}
-
 # Tag data structure
 #
+tag_primer = {"PrimerTag": [01,01,01,01,01,01,01]}
 TEST_TAG = {"Mario":[130, 81, 177, 239, 0, 0, 0]}
 TAG_FILE = 'tag_archive.p'
-# TAG_ARCHIVE = {}
 
 def init_usb():
     global dev
@@ -96,9 +92,7 @@ def switch_pad_color(pad, color):
     return
 
 def uid_compare(TAG_ARCHIVE, uid1, pad_num):
-    print ("uid compare")
     match = False
-#    read_tag_file()
     print ("Comparing to this list: ")
     print TAG_ARCHIVE
     for character, tag_id in TAG_ARCHIVE.iteritems():
@@ -113,12 +107,10 @@ def uid_compare(TAG_ARCHIVE, uid1, pad_num):
     if new_tag_name:
         TAG_ARCHIVE[new_tag_name] = uid1
         write_tag_file() 
-    print "end of uid compare"
     return match 
 
 def read_tag_file():
     global TAG_ARCHIVE
-    print ("read tag file")
     tags=open(TAG_FILE, 'rb')
     while 1:
         try:
@@ -126,15 +118,12 @@ def read_tag_file():
         except EOFError:
             break
     tags.close()
-    print ("Tags read: ")
-    print TAG_ARCHIVE
 #    if not TAG_ARCHIVE:
 #        prime_tag_archive()
 #    print TAG_ARCHIVE
     return
 
 def write_tag_file():
-    print ("write tag file")
     tags=open(TAG_FILE, 'wb')
     pickle.dump(TAG_ARCHIVE, tags)
     tags.close()
@@ -162,10 +151,8 @@ def main():
 
     # Load Tag Archive
     #
-
     read_tag_file()
-    print "Back in the main"
-    print TAG_ARCHIVE
+
     # Start a loop looking for tags
     #
     if dev != None :
