@@ -14,6 +14,7 @@ import usb.core
 import usb.util
 from time import sleep
 import pickle
+import os.path
 
 # Toypad initiliztion string
 #
@@ -41,7 +42,7 @@ TAG_REMOVED  = 1
 # Tag data structure
 #
 tag_primer = {"PrimerTag": [01,01,01,01,01,01,01]}
-TEST_TAG = {"Mario":[130, 81, 177, 239, 0, 0, 0]}
+# TEST_TAG = {"Mario":[130, 81, 177, 239, 0, 0, 0]}
 TAG_FILE = 'tag_archive.p'
 
 def init_usb():
@@ -118,9 +119,6 @@ def read_tag_file():
         except EOFError:
             break
     tags.close()
-#    if not TAG_ARCHIVE:
-#        prime_tag_archive()
-#    print TAG_ARCHIVE
     return
 
 def write_tag_file():
@@ -130,7 +128,7 @@ def write_tag_file():
     return
 
 def prime_tag_archive():
-    print ("prime tag file")
+    print ("Priming the tag archive")
     TAG_ARCHIVE["PrimingTag"] = [01, 01, 01, 01, 01, 01, 01]
     write_tag_file()
     return
@@ -148,6 +146,11 @@ def main():
     # Switch all pads off
     #
     switch_pad_color(ALL_PADS,OFF)
+
+    # Check if the tag archive exists, if not prime it.
+    #    
+    if not os.path.isfile(TAG_FILE):
+        prime_tag_archive()
 
     # Load Tag Archive
     #
