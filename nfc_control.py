@@ -127,6 +127,7 @@ def write_tag_file():
     return
 
 def prime_tag_archive():
+    global TAG_ARCHIVE
     print ("Priming the tag archive")
     TAG_ARCHIVE["PrimingTag"] = [01, 01, 01, 01, 01, 01, 01]
     write_tag_file()
@@ -148,7 +149,6 @@ def main():
 
     # Check if the tag archive exists, if not prime it.
     # 
-    global TAG_ARCHIVE  
     if not os.path.isfile(TAG_FILE):
         prime_tag_archive()
 
