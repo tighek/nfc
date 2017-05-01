@@ -2,7 +2,7 @@
 
 # Toy pad control script
 #
-# By Tighe Kuykendall and Seth Kuykendall
+# By Tighe Kuykendall and Seth Kuykendall, Copyright 2017
 #
 # This is based upon the work by Jorge Pereira on ev3dev.org and @woodenphone on GitHub
 #
@@ -138,14 +138,9 @@ def main():
 
     print ("Starting up...")
  
-#    prime_tag_archive()
-       
-    # Initialize the Toypad
+    # Initialize the Toypad and make sure the lights are off
     #
     init_usb()
-    
-    # Switch all pads off
-    #
     switch_pad_color(ALL_PADS,OFF)
 
     # Check if the tag archive exists, if not prime it.
@@ -196,7 +191,6 @@ def main():
                 pass
 
         switch_pad_color(ALL_PADS,OFF)
-
     return
 
 if __name__ == '__main__':
